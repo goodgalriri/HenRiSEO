@@ -1,0 +1,115 @@
+/* AnalysisSection.css */
+
+/* Basic styling for the Analysis Section */
+.analysis-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    color: black; /* Ensure all text in this section is black */
+  }
+  
+  .report-summary-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 10px; /* Align to the left */
+    color: black; /* Set the title color to black */
+  }
+  
+  .report-item {
+    background-color: #ffe0cc;
+    border: 2px solid #ff6b00;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    color: black; /* Ensure text color is black */
+  }
+  
+  .report-item:hover {
+    background-color: #ffd1b3;
+    color: black; /* Keep text color black on hover */
+  }
+  
+  /* Core Web Vitals table styling */
+  .core-web-vitals-table {
+    margin-top: 10px;
+    color: black; /* Set text color to black */
+  }
+  
+  .core-web-vitals-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffe0cc;
+    border: 2px solid #ff6b00;
+    color: black; /* Set text color to black */
+  }
+  
+  .core-web-vitals-table th,
+  .core-web-vitals-table td {
+    border: 1px solid #ff6b00;
+    padding: 10px;
+    text-align: left;
+    color: black; /* Ensure text color is black */
+  }
+  
+  .core-web-vitals-table th {
+    background-color: #ffdab3;
+    color: black; /* Ensure header text color is black */
+  }
+  
+  .core-web-vitals-table td {
+    background-color: #fff5e6;
+    color: black; /* Ensure table cell text color is black */
+  }
+  
+  .core-web-vitals-table tr:nth-child(even) td {
+    background-color: #ffe5cc;
+    color: black; /* Ensure even row text color is black */
+  }
+  
+  .core-web-vitals-table tr:hover td {
+    background-color: #ffdab3;
+    color: black; /* Ensure hover row text color is black */
+  }
+  
+  /* Responsive Design */
+  
+  /* Medium Devices (Tablets) */
+  @media (max-width: 768px) {
+    .report-summary-title {
+      font-size: 20px;
+      padding-left: 5px;
+    }
+  
+    .report-item {
+      font-size: 16px;
+      padding: 15px;
+    }
+  
+    .core-web-vitals-table th, 
+    .core-web-vitals-table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Small Devices (Mobile Phones) */
+  @media (max-width: 480px) {
+    .report-summary-title {
+      font-size: 18px;
+      padding-left: 5px;
+    }
+  
+    .report-item {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .core-web-vitals-table th, 
+    .core-web-vitals-table td {
+      padding: 6px;
+      font-size: 12px;
+    }
+  }
+  

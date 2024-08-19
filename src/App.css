@@ -1,0 +1,23 @@
+/* App.css */
+
+/* You can keep component-specific styles here if needed */
+
+.App-header {
+  background-color: whitesmoke; /* Example for header or specific component styling */
+  padding: 20px;
+  color: black;
+  text-align: center;
+}
+
+.App-content {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.App-footer {
+  background-color: whitesmoke;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}

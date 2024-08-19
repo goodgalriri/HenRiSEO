@@ -1,0 +1,139 @@
+/* Header.css */
+
+/* Overall Header Style */
+.seo-header {
+  width: 100%;
+  background-color: whitesmoke; 
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Content Container */
+.seo-header-content {
+  margin: 0 50px;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo/Title Section */
+.seo-header-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title Color Adjustment */
+.seo-header-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #426B1F;  /* Apply the desired color to the entire title */
+  margin: 0;
+}
+
+.seo-header-title .highlight {
+  font-weight: normal;
+  color: #426B1F; /* Ensure HenRi stays in the correct color */
+}
+
+.seo-header-tagline {
+  font-size: 12px;
+  color: black; /* Tagline color */
+  margin: 0;
+  font-style: italic;
+  margin-right: 10px;
+}
+
+/* Navigation */
+.seo-header-nav {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 20px; /* Spacing between nav links */
+}
+
+.seo-header-link {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.seo-header-link:hover {
+  color: #426B1F; /* Color on hover */
+}
+
+/* Call-to-Action Button */
+.seo-header-button {
+  font-size: 16px;
+  color: white;
+  background-color: #426B1F; /* Button background color */
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.seo-header-button:hover {
+  background-color: #426B1F;
+  color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .seo-header-content {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px; /* Reduce side margins for smaller screens */
+  }
+
+  .seo-header-logo {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .seo-header-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .seo-header-title {
+    font-size: 20px; /* Adjust title size for smaller screens */
+  }
+
+  .seo-header-button {
+    padding: 8px 12px; /* Adjust button padding */
+    font-size: 14px; /* Adjust button font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .seo-header-content {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px; /* Further reduce side margins for mobile */
+  }
+
+  .seo-header-logo {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .seo-header-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .seo-header-title {
+    font-size: 18px; /* Further adjust title size for mobile */
+  }
+
+  .seo-header-button {
+    padding: 6px 10px; /* Further adjust button padding */
+    font-size: 12px; /* Further adjust button font size */
+  }
+}

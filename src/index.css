@@ -1,0 +1,90 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;700&display=swap');
+
+/* Global Styles for the entire application */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body takes the full height of the viewport */
+  font-family: 'Newsreader', serif;
+  background-color: whitesmoke; /* Set the new background color */
+  color: black; /* Light text color for contrast against dark background */
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box; /* Ensure consistent box sizing across all elements */
+}
+
+.App {
+  min-height: 100vh; /* Ensure the application takes full screen height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: whitesmoke; /* Ensure App covers the whole background */
+}
+
+/* Header */
+.App-header {
+  background-color: whitesmoke; /* Match header background with page background */
+  padding: 20px; /* Adds spacing inside the header */
+  color: black;
+  text-align: center;
+  width: 100%;
+}
+
+/* Content */
+.App-content {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Footer */
+.App-footer {
+  background-color: whitesmoke;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+/* Responsive Design */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+  .App-content {
+    padding: 30px 20px; /* Adjust padding for tablets */
+    max-width: 700px; /* Adjust content width for tablets */
+  }
+
+  .App-header {
+    padding: 15px; /* Reduce padding in header for tablets */
+  }
+
+  .App-footer {
+    padding: 15px; /* Adjust padding for tablets */
+  }
+}
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 480px) {
+  .App-content {
+    padding: 20px 15px; /* Further adjust padding for mobile */
+    max-width: 100%; /* Make content width full for mobile */
+  }
+
+  .App-header {
+    padding: 10px; /* Reduce padding further for mobile */
+  }
+
+  .App-footer {
+    padding: 10px; /* Reduce padding for footer on mobile */
+  }
+}

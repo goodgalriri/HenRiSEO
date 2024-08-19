@@ -1,0 +1,75 @@
+/* RecommendationSection.css */
+
+/* Recommendations title styling */
+.recommendation-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 40px 0 20px;
+    text-align: left;
+    padding-left: 10px; /* Optional: Align to the left with some padding */
+    color: black; /* Set title color to black */
+  }
+  
+  /* Recommendations section styling */
+  .recommendations-section {
+    padding: 20px;
+    background-color: #ffe0cc;
+    border: 2px solid #ff6b00;
+    color: black; /* Ensure text color in the recommendations section is black */
+  }
+  
+  .recommendations-content {
+    font-size: 18px;
+    color: black; /* Ensure text color in content is black */
+  }
+  
+  .recommendations-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: black; /* Ensure list item text color is black */
+  }
+  
+  .recommendations-content li {
+    margin-bottom: 10px;
+    color: black; /* Ensure list item text color is black */
+  }
+  
+  .recommendations-content p {
+    margin: 0;
+    color: black; /* Ensure paragraph text color is black */
+  }
+  
+  /* Responsive Design */
+  
+  /* Medium Devices (Tablets) */
+  @media (max-width: 768px) {
+    .recommendation-title {
+      font-size: 20px;
+      padding-left: 5px;
+    }
+  
+    .recommendations-section {
+      padding: 15px;
+    }
+  
+    .recommendations-content {
+      font-size: 16px;
+    }
+  }
+  
+  /* Small Devices (Mobile Phones) */
+  @media (max-width: 480px) {
+    .recommendation-title {
+      font-size: 18px;
+      padding-left: 5px;
+    }
+  
+    .recommendations-section {
+      padding: 10px;
+    }
+  
+    .recommendations-content {
+      font-size: 14px;
+    }
+  }
+  

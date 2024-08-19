@@ -1,0 +1,241 @@
+/* SEOHomepage.css */
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Newsreader', serif;
+  background-color: whitesmoke; /* Set the new background color */
+  color: whitesmoke; /* Ensure text is visible against the new background */
+  line-height: 1.6;
+}
+
+/* Apply the Newsreader font to headers and paragraph text */
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Newsreader', serif;
+}
+
+h1{
+  font-weight: 200;
+}
+
+h2{
+  font-weight: 400;
+}
+
+p{
+  font-weight: 400;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 100px 20px 40px; /* Adjust for header */
+  text-align: center;
+  margin: 0 auto;
+}
+
+.welcome-section {
+  margin-bottom: 40px;
+}
+
+.welcome-title {
+  font-size: 50px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 30px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  color: black;
+  font-weight: bold;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column; /* Stack input and button vertically */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 35px; /* Space between input and button */
+}
+
+.url-input {
+  width: 600px; /* Keep the input field wider */
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid white;
+  border-radius: 50px; /* Keep the rounded shape */
+  background-color: white;
+  color: black; /* Corrected to ensure text is readable on a white background */
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-style: italic;
+}
+
+.url-input::placeholder {
+  color: #cccccc;
+}
+
+.url-input:focus {
+  border-color: #426B1F;
+}
+
+.analyze-button {
+  width: 300px; /* Smaller width than input */
+  padding: 10px 20px; /* Smaller padding for rectangle shape */
+  font-size: 20px;
+  color: white;
+  background-color: #FE6A00;
+  border: none;
+  border-radius:10px; /* Slightly rounded corners for a rectangle */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.analyze-button:hover {
+  background-color: #426B1F;
+}
+
+.question-section {
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: space-between; /* Align elements to the left and right */
+  align-items: flex-start; /* Align to the top */
+  margin-top: 50px; /* Adjust spacing between sections */
+  margin-bottom: 40px; /* Adjust spacing between sections */
+  width: 100%;
+  max-width: 1000px; /* Adjust width to fit content */
+  padding: 0; /* Remove padding to blend with background */
+}
+
+.ask-yourself-container {
+  flex: 1; /* Take equal space */
+  max-width: 200px; /* Limit width for the "ASK YOURSELF" section */
+  text-align: left; /* Align text to the left */
+}
+
+.ask-yourself {
+  font-size: 25px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.question-content {
+  flex: 3; /* Take more space compared to the left side */
+  padding-left: 20px; /* Add space between sections */
+  text-align: left; /* Align text to the left */
+}
+
+.question-content p {
+  font-size: 22px;
+  color: black;
+  margin: 10px 0;
+}
+
+.question-content .highlight {
+  color: #426B1F;
+}
+
+/* Responsive Design */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 80px 15px 20px;
+  }
+
+  .welcome-title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .url-input {
+    width: 300px; /* Adjust width for smaller screens */
+  }
+
+  .analyze-button {
+    width: 250px; /* Adjust width for button */
+    padding: 10px 15px; /* Adjust padding */
+  }
+
+  .question-section {
+    flex-direction: column; /* Stack the sections vertically */
+    align-items: flex-start; /* Align the content to the start */
+  }
+
+  .question-section p {
+    font-size: 18px;
+  }
+}
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 60px 10px 10px;
+  }
+
+  .welcome-title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .url-input {
+    width: 250px; /* Further adjust width for mobile */
+  }
+
+  .analyze-button {
+    width: 200px; /* Adjust button width for mobile */
+    padding: 8px 12px; /* Adjust padding */
+  }
+
+  .question-section {
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .question-content p {
+    font-size: 16px; /* Adjust text size for mobile */
+  }
+
+  .ask-yourself {
+    font-size: 20px;
+  }
+}
+
+/* Error Styles */
+/* Warning Box */
+.warning-box {
+  color: red;
+  background-color: #ffebeb;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Input Error */
+.input-error {
+  border-color: red;
+}

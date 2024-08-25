@@ -3,7 +3,7 @@ import './AnalysisSection.css';
 import RecommendationSection from './RecommendationSection';
 
 const AnalysisSection = React.forwardRef((props, ref) => {
-  const { robotsTxtStatus, sitemapStatus } = props;
+  const { robotsTxtStatus, sitemapStatus, httpsStatus, mobileFriendlyStatus } = props;
   const [isCoreWebVitalsVisible, setIsCoreWebVitalsVisible] = useState(false);
 
   const toggleCoreWebVitals = () => {
@@ -34,20 +34,30 @@ const AnalysisSection = React.forwardRef((props, ref) => {
       <section ref={ref} className="analysis-section">
         <h2 className="report-summary-title">REPORT SUMMARY</h2>
         
-        {/* Display the robots.txt status here */}
+        {/* Display the robots.txt status */}
         <div className="report-item robots-txt">
           <strong>Robots.txt</strong>
           <p>{robotsTxtStatus || "Robots.txt found / Robots.txt was not found"}</p>
         </div>
         
-        {/* Display the XML Sitemap status here */}
+        {/* Display the XML Sitemap status */}
         <div className="report-item sitemap">
           <strong>XML Sitemap</strong>
           <p>{sitemapStatus || "Sitemap found / Sitemap was not found"}</p>
         </div>
+
+        {/* Display the HTTPS status */}
+        <div className="report-item https-status">
+          <strong>HTTPS Status</strong>
+          <p>{httpsStatus || "HTTPS status not determined"}</p>
+        </div>
         
-        <div className="report-item">Safe Browsing Site Status (HTTPS)</div>
-        <div className="report-item">Mobile Friendly Content</div>
+        {/* Display the mobile-friendly status */}
+        <div className="report-item mobile-friendly-status">
+          <strong>Mobile Friendly Content</strong>
+          <p>{mobileFriendlyStatus || "Mobile friendliness not determined"}</p>
+        </div>
+        
         <div className="report-item" onClick={toggleCoreWebVitals} style={{ cursor: 'pointer' }}>
           Core Web Vitals {isCoreWebVitalsVisible ? '▲' : '▼'}
         </div>

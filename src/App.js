@@ -1,6 +1,6 @@
 import React from 'react';
-import SEOHomepage from './components/SEOHomepage'; 
-import './styles/App.css'; 
+import SEOHomepage from './components/SEOHomepage';
+import './styles/App.css';
 
 function App() {
   return (

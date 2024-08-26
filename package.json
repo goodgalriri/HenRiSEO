@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "esbuild src/index.js --bundle --outfile=dist/bundle.js --platform=node --target=node14 --loader:.js=jsx --loader:.svg=file",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -37,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "esbuild": "^0.23.0"
   }
 }

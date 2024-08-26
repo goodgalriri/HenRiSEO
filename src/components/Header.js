@@ -17,13 +17,13 @@ const Header = () => {
         </div>
         <nav className="seo-header-nav">
           <a href="#why-seo" className="seo-header-link">
-            Why SEO?
+            Why SEO
           </a>
-          <a
-            href="https://www.itconnexion.com/"
-            target="_blank"
+          <a 
+            href="https://www.itconnexion.com/contact/" 
+            className="seo-header-button" 
+            target="_blank" 
             rel="noopener noreferrer"
-            className="seo-header-button"
           >
             Contact our SEO Experts
           </a>
@@ -34,3 +34,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LandingPage from './components/LandingPage';
 import SEOHomepage from './components/SEOHomepage';
-import './styles/App.css';
 
-function App() {
+
+const App = () => {
+  const [isVerified, setIsVerified] = useState(false);
+
+  const handleVerificationSuccess = () => {
+    setIsVerified(true);
+  };
+
   return (
-    <div className="App">
-      <SEOHomepage />
+    <div className="app">
+      {isVerified ? (
+        <SEOHomepage />
+      ) : (
+        <LandingPage onVerificationSuccess={handleVerificationSuccess} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
 

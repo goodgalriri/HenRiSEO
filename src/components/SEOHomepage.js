@@ -16,6 +16,8 @@ const SEOHomepage = () => {
     INP: 'Not available',
     CLS: 'Not available',
   });
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showMessageBox, setShowMessageBox] = useState(false); // For message box visibility
 
   useEffect(() => {
     // Log when the component mounts or updates
@@ -39,10 +41,25 @@ const SEOHomepage = () => {
     // Check if the URL matches the domain patterns
     const isDomainValid = domainPattern.test(url) || bareDomainPattern.test(url);
     return isDomainValid;
+  const toggleMessageBox = () => {
+    setShowMessageBox((prev) => !prev); // Toggle message box visibility
+  };
+
+  const isValidDomain = (domain) => {
+    const domainPattern = /^https?:\/\/(www\.)?[a-zA-Z\d-]+(\.[a-zA-Z]{2,})+\/?$/;
+    return domainPattern.test(domain);
   };
   
   const handleSubmit = async () => {
     // Validate URL format before making the request
+    // Check if the "Terms and Conditions" checkbox is checked
+    if (!termsAccepted) {
+      setErrorMessage('Please accept the Terms and Conditions to proceed.');
+      setIsUrlValid(false);
+      return;
+    }
+
+    // Validate the domain format
     if (!isValidDomain(url)) {
       setErrorMessage('Domain format is not correct. Please enter a valid URL.');
       setIsUrlValid(false);
@@ -117,7 +134,7 @@ const SEOHomepage = () => {
       <Header />
       <main className="main-content">
         <section className="welcome-section">
-          <h1 className="welcome-title">Welcome</h1>
+          <h1 className="welcome-title">Welcome.</h1>
           <h2 className="subtitle">
             Unlock Your Website's Potential with{' '}
             <span className="highlight">HenRi's Technical SEO Analysis</span>
@@ -130,10 +147,37 @@ const SEOHomepage = () => {
               onChange={handleInputChange}
               className={`url-input ${errorMessage ? 'input-error' : ''}`}
             />
-            <button onClick={handleSubmit} className="analyze-button">
-              Analyze your Website
+
+            {/* Conditionally hide Terms and Conditions when the report is shown */}
+            {!isUrlValid && (
+              <div className="terms-conditions">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  name="terms"
+                  onChange={(e) => {
+                    setTermsAccepted(e.target.checked);
+                  }}
+                />
+                <label htmlFor="terms" style={{ color: 'black', fontSize: '16px' }}>
+                  I agree to the
+                  <a
+                    href="#"
+                    onClick={toggleMessageBox}
+                    style={{ color: 'black', textDecoration: 'underline', marginLeft: '5px' }}
+                  >
+                    Terms and Conditions
+                  </a>
+                  &nbsp;and understand that data may be collected for analysis purposes.
+                </label>
+              </div>
+            )}
+
+            <button onClick={handleSubmit} className="analyze-button" disabled={!termsAccepted}>
+              Analyse your Website
             </button>
           </div>
+
           {errorMessage && <div className="warning-box">{errorMessage}</div>}
         </section>
 
@@ -141,16 +185,19 @@ const SEOHomepage = () => {
           <section className="question-section">
             <div className="ask-yourself-container">
               <p className="ask-yourself">ASK YOURSELF</p>
+        {/* Conditionally hide the Terms and Conditions message box */}
+        {!isUrlValid && showMessageBox && (
+          <div className="message-box">
+            <h2>Terms and Conditions</h2>
+            <div className="terms-content">
+              <p>By using this technical anlysis service, you agree to the following terms:</p>
+              <p>1. Data Collection: We collect certain information for the purpose of analysing improving your SEO.</p>
+              <p>2. Usage Rights: The data you provide can be used for analysis purposes as well as collecting for training and sales.</p>
             </div>
-            <div className="question-content">
-              <p>Is your organisation’s website reaching its full potential?</p>
-              <p>
-                Discover the power of cutting-edge SEO analysis to drive more traffic,
-                improve your search rankings, and boost your online visibility with
-                <span className="highlight"> HenRi</span>.
-              </p>
-            </div>
-          </section>
+            <button onClick={toggleMessageBox} className="close-button">
+              Close
+            </button>
+          </div>
         )}
 
         {isUrlValid && (

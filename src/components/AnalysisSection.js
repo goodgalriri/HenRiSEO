@@ -88,7 +88,7 @@ const AnalysisSection = React.forwardRef((props, ref) => {
         </div>
 
         <div className="report-item" onClick={toggleCoreWebVitals} style={{ cursor: 'pointer' }}>
-          Core Web Vitals {isCoreWebVitalsVisible ? '▲' : '▼'}
+          Your Core Web Vitals: {isCoreWebVitalsVisible ? '▲' : '▼'}
         </div>
 
         {isCoreWebVitalsVisible && (
@@ -100,18 +100,24 @@ const AnalysisSection = React.forwardRef((props, ref) => {
                   <span>{isNaN(lcpValue) ? 'Not available' : lcpValue.toFixed(2)}</span>
                 </div>
                 <h3>LCP</h3>
+                <p> Largest Contentful Paint</p>
+                <p> This tracks the time it takes for the largest visual part of the page to load. It's a measure of how long it takes for a user to start working with your site.</p>
               </div>
               <div className="core-web-vitals-column">
                 <div className="core-web-vitals-chart" style={{ background: getChartData(inpValue, inpCategory).datasets[0].backgroundColor[0] }}>
                   <span>{isNaN(inpValue) ? 'Not available' : inpValue.toFixed(2)}</span>
                 </div>
                 <h3>INP</h3>
+                <p> Interaction to Next Paint</p>
+                <p>This is a web performance metric that measures user interface responsiveness – how quickly a website responds to user interactions like clicks or key presses.</p>
               </div>
               <div className="core-web-vitals-column">
                 <div className="core-web-vitals-chart" style={{ background: getChartData(clsValue, clsCategory).datasets[0].backgroundColor[0] }}>
                   <span>{isNaN(clsValue) ? 'Not available' : clsValue.toFixed(2)}</span>
                 </div>
                 <h3>CLS</h3>
+                <p> Cumulative Layout Shift (CLS)</p>
+                <p>This measures the visual stability of your webpage's content as a user views it. This metric takes into account unexpected movement of elements in the viewport as the page loads.</p>
               </div>
             </div>
             <div className="color-legend">

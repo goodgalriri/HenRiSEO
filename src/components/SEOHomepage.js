@@ -87,7 +87,7 @@ const SEOHomepage = () => {
         body: JSON.stringify({
           to: 'Henry.Nguyen@itconnexion.com',
           subject: "New URL Submission",
-          text: `Dear developer, at time: ${new Date().toLocaleString()}, a user submitted the following URL: ${url}`,
+          text: `Dear Analsying Team, at time: ${new Date().toLocaleString()}, a new ran a Technical SEO Analysis test on HenRi with the following URL: ${url}`,
         }),
       }).then(emailResponse => {
         if (!emailResponse.ok) {
@@ -172,9 +172,11 @@ const SEOHomepage = () => {
           <div className="message-box">
             <h2>Terms and Conditions</h2>
             <div className="terms-content">
-              <p>By using this technical analysis service, you agree to the following terms:</p>
-              <p>1. Data Collection: We collect certain information for the purpose of analysing and improving your SEO.</p>
-              <p>2. Usage Rights: The data you provide can be used for analysis purposes as well as for training and sales.</p>
+              <p>By using the HenRi SEO Analyser service, you agree to the following terms: </p>
+              <p>1. Data Collection: We collect certain information, including website URLs, contact details, and usage data, to analyse and improve your SEO performance. </p>
+              <p>2. Usage Rights: The data you provide may be used for analysis, internal research, service improvement, and marketing purposes. This includes using anonymised data for product enhancement and sales development. Your personal information will not be sold to third parties. </p>
+              <p>3. Consent: By entering your information, you consent to its collection, use, and storage following this policy. </p>
+              <p> Disclaimer: HenRi SEO Analyser makes no guarantees about the specific outcomes or benefits of using the service and is not liable for any potential losses arising from the use of our analysis or recommendations.</p>
             </div>
             <button onClick={toggleMessageBox} className="close-button">
               Close

@@ -34,7 +34,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Space between rows */
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
 }
 
 .core-web-vitals-title {
@@ -47,12 +49,15 @@
 .core-web-vitals-row {
   display: flex;
   justify-content: center;
-  width: 100%;
-  gap: 20px; /* Space between columns */
+  align-items: center;
+  width: 100%; /* Ensure it takes the full width */
+  gap: 20px; /* Adjust the spacing between charts */
 }
 
 .core-web-vitals-column {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content inside each column */
 }
 
 .core-web-vitals-chart {

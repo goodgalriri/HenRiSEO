@@ -42,6 +42,13 @@ const SEOHomepage = () => {
     setShowMessageBox((prev) => !prev);
   };
 
+  // Close modal when clicking outside the modal box
+  const handleOutsideClick = (event) => {
+    if (event.target.classList.contains('modal-container')) {
+      setShowMessageBox(false);
+    }
+  };
+
   const handleSubmit = async () => {
     if (!termsAccepted) {
       setErrorMessage('Please accept the Terms and Conditions to proceed.');
@@ -169,18 +176,21 @@ const SEOHomepage = () => {
 
         {/* Terms and Conditions message box displayed above ASK YOURSELF */}
         {showMessageBox && (
-          <div className="message-box">
-            <h2>Terms and Conditions</h2>
-            <div className="terms-content">
-              <p>By using this technical analysis service, you agree to the following terms:</p>
-              <p>1. Data Collection: We collect certain information for the purpose of analysing and improving your SEO.</p>
-              <p>2. Usage Rights: The data you provide can be used for analysis purposes as well as for training and sales.</p>
-            </div>
-            <button onClick={toggleMessageBox} className="close-button">
-              Close
-            </button>
+      <div className={`modal-container ${showMessageBox ? 'show' : ''}`} onClick={handleOutsideClick}>
+        <div className="message-box">
+          <h2>Terms and Conditions</h2>
+          <div className="terms-content">
+            <p>By using this technical analysis service, you agree to the following terms:</p>
+            <p>1. Data Collection: We collect certain information for the purpose of analysing and improving your SEO.</p>
+            <p>2. Usage Rights: The data you provide can be used for analysis purposes as well as for training and sales.</p>
           </div>
-        )}
+          <button className="close-button" onClick={toggleMessageBox}>
+            X
+          </button>
+        </div>
+        <div className="modal-overlay" onClick={toggleMessageBox}></div> {/* Overlay to detect clicks outside */}
+      </div>
+    )}
 
         {!isUrlValid && (
           <section className="question-section">

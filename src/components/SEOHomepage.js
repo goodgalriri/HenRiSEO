@@ -42,6 +42,13 @@ const SEOHomepage = () => {
     setShowMessageBox((prev) => !prev);
   };
 
+  // Close modal when clicking outside the modal box
+  const handleOutsideClick = (event) => {
+    if (event.target.classList.contains('modal-container')) {
+      setShowMessageBox(false);
+    }
+  };
+
   const handleSubmit = async () => {
     if (!termsAccepted) {
       setErrorMessage('Please accept the Terms and Conditions to proceed.');
@@ -85,9 +92,9 @@ const SEOHomepage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'Henry.Nguyen@itconnexion.com',
+          to: 'rgambhir@itconnexion.com',
           subject: "New URL Submission",
-          text: `Dear Analsying Team, at time: ${new Date().toLocaleString()}, a new ran a Technical SEO Analysis test on HenRi with the following URL: ${url}`,
+          text: `Hi there, at time: ${new Date().toLocaleString()}, a new user submitted the following URL into HenRi: ${url}`,
         }),
       }).then(emailResponse => {
         if (!emailResponse.ok) {
@@ -152,7 +159,7 @@ const SEOHomepage = () => {
                       marginLeft: '5px',
                     }}
                   >
-                    Terms and Conditions
+                    terms and conditions
                   </button>
                   &nbsp;and understand that data may be collected for analysis purposes.
                 </label>
@@ -169,20 +176,24 @@ const SEOHomepage = () => {
 
         {/* Terms and Conditions message box displayed above ASK YOURSELF */}
         {showMessageBox && (
-          <div className="message-box">
-            <h2>Terms and Conditions</h2>
-            <div className="terms-content">
-              <p>By using the HenRi SEO Analyser service, you agree to the following terms: </p>
-              <p>1. Data Collection: We collect certain information, including website URLs, contact details, and usage data, to analyse and improve your SEO performance. </p>
-              <p>2. Usage Rights: The data you provide may be used for analysis, internal research, service improvement, and marketing purposes. This includes using anonymised data for product enhancement and sales development. Your personal information will not be sold to third parties. </p>
-              <p>3. Consent: By entering your information, you consent to its collection, use, and storage following this policy. </p>
-              <p> Disclaimer: HenRi SEO Analyser makes no guarantees about the specific outcomes or benefits of using the service and is not liable for any potential losses arising from the use of our analysis or recommendations.</p>
-            </div>
-            <button onClick={toggleMessageBox} className="close-button">
-              Close
-            </button>
+      <div className={`modal-container ${showMessageBox ? 'show' : ''}`} onClick={handleOutsideClick}>
+        <div className="message-box">
+          <h2>Terms and Conditions</h2>
+          <div className="terms-content">
+            <p>By using the HenRi SEO Analyser service, you agree to the following terms: </p>
+            <p>1. Data Collection: We collect certain information, including website URLs, contact details, and usage data, to analyse and improve your SEO performance. </p>
+            <p>2. Usage Rights: The data you provide may be used for analysis, internal research, service improvement, and marketing purposes. This includes using anonymised data for product enhancement and sales development. Your personal information will not be sold to third parties. </p>
+            <p>3. Consent: By entering your information, you consent to its collection, use, and storage following this policy. </p>
+            <p> Disclaimer: HenRi SEO Analyser makes no guarantees about the specific outcomes or benefits of using the service and is not liable for any potential losses arising from the use of our analysis or recommendations. 
+            </p>
           </div>
-        )}
+          <button className="close-button" onClick={toggleMessageBox}>
+            X
+          </button>
+        </div>
+        <div className="modal-overlay" onClick={toggleMessageBox}></div> {/* Overlay to detect clicks outside */}
+      </div>
+    )}
 
         {!isUrlValid && (
           <section className="question-section">

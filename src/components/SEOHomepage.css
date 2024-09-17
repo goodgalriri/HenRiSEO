@@ -148,6 +148,28 @@ p{
   color: #426B1F;
 }
 
+/* Loading button */
+.analyze-button {
+  position: relative;
+}
+
+.spinner {
+  margin-left: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Responsive Design */
 
 /* Medium Devices (Tablets) */

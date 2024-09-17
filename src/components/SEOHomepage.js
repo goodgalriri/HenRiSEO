@@ -18,6 +18,7 @@ const SEOHomepage = () => {
   });
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [showMessageBox, setShowMessageBox] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
 
   useEffect(() => {
     console.log('Component has been mounted or updated');
@@ -64,6 +65,7 @@ const SEOHomepage = () => {
 
     setErrorMessage('');
     setIsUrlValid(true);
+    setIsLoading(true); // Set loading state to true when analysis starts
 
     try {
       const response = await fetch(`/api/check-robots?url=${encodeURIComponent(url)}`, {
@@ -113,6 +115,8 @@ const SEOHomepage = () => {
     } catch (error) {
       setErrorMessage(error.message || 'Failed to check the URL. Please try again.');
       setIsUrlValid(false);
+    } finally {
+      setIsLoading(false); // Set loading state to false when the process is done
     }
   };
 
@@ -166,34 +170,45 @@ const SEOHomepage = () => {
               </div>
             )}
 
-            <button onClick={handleSubmit} className="analyze-button" disabled={!termsAccepted}>
-              Analyse your Website
+            <button 
+              onClick={handleSubmit} 
+              className="analyze-button" 
+              disabled={!termsAccepted || isLoading} // Disable button during loading
+            >
+              {isLoading ? (
+                <>
+                  Analyzing... {/* Show this when loading */}
+                  {/* Optional spinner */}
+                  <span className="spinner"></span>
+                </>
+              ) : (
+                'Analyze your Website' // Show this when not loading
+              )}
             </button>
           </div>
 
           {errorMessage && <div className="warning-box">{errorMessage}</div>}
         </section>
 
-        {/* Terms and Conditions message box displayed above ASK YOURSELF */}
         {showMessageBox && (
-      <div className={`modal-container ${showMessageBox ? 'show' : ''}`} onClick={handleOutsideClick}>
-        <div className="message-box">
-          <h2>Terms and Conditions</h2>
-          <div className="terms-content">
-            <p>By using the HenRi SEO Analyser service, you agree to the following terms: </p>
-            <p>1. Data Collection: We collect certain information, including website URLs, contact details, and usage data, to analyse and improve your SEO performance. </p>
-            <p>2. Usage Rights: The data you provide may be used for analysis, internal research, service improvement, and marketing purposes. This includes using anonymised data for product enhancement and sales development. Your personal information will not be sold to third parties. </p>
-            <p>3. Consent: By entering your information, you consent to its collection, use, and storage following this policy. </p>
-            <p> Disclaimer: HenRi SEO Analyser makes no guarantees about the specific outcomes or benefits of using the service and is not liable for any potential losses arising from the use of our analysis or recommendations. 
-            </p>
+          <div className={`modal-container ${showMessageBox ? 'show' : ''}`} onClick={handleOutsideClick}>
+            <div className="message-box">
+              <h2>Terms and Conditions</h2>
+              <div className="terms-content">
+                <p>By using the HenRi SEO Analyser service, you agree to the following terms: </p>
+                <p>1. Data Collection: We collect certain information, including website URLs, contact details, and usage data, to analyse and improve your SEO performance. </p>
+                <p>2. Usage Rights: The data you provide may be used for analysis, internal research, service improvement, and marketing purposes. This includes using anonymised data for product enhancement and sales development. Your personal information will not be sold to third parties. </p>
+                <p>3. Consent: By entering your information, you consent to its collection, use, and storage following this policy. </p>
+                <p> Disclaimer: HenRi SEO Analyser makes no guarantees about the specific outcomes or benefits of using the service and is not liable for any potential losses arising from the use of our analysis or recommendations. 
+                </p>
+              </div>
+              <button className="close-button" onClick={toggleMessageBox}>
+                X
+              </button>
+            </div>
+            <div className="modal-overlay" onClick={toggleMessageBox}></div> {/* Overlay to detect clicks outside */}
           </div>
-          <button className="close-button" onClick={toggleMessageBox}>
-            X
-          </button>
-        </div>
-        <div className="modal-overlay" onClick={toggleMessageBox}></div> {/* Overlay to detect clicks outside */}
-      </div>
-    )}
+        )}
 
         {!isUrlValid && (
           <section className="question-section">

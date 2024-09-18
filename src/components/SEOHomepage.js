@@ -94,7 +94,7 @@ const SEOHomepage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'rgambhir@itconnexion.com',
+          to: 'HNguyen@itconnexion.com',
           subject: "New URL Submission",
           text: `Hi there, at time: ${new Date().toLocaleString()}, a new user submitted the following URL into HenRi: ${url}`,
         }),
@@ -177,12 +177,12 @@ const SEOHomepage = () => {
             >
               {isLoading ? (
                 <>
-                  Analyzing... {/* Show this when loading */}
+                  Analysing... {/* Show this when loading */}
                   {/* Optional spinner */}
                   <span className="spinner"></span>
                 </>
               ) : (
-                'Analyze your Website' // Show this when not loading
+                'Analyse your Website' // Show this when not loading
               )}
             </button>
           </div>

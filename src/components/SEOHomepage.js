@@ -18,7 +18,7 @@ const SEOHomepage = () => {
   });
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [showMessageBox, setShowMessageBox] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Loading state
+  const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
     console.log('Component has been mounted or updated');
@@ -65,11 +65,14 @@ const SEOHomepage = () => {
 
     setErrorMessage('');
     setIsUrlValid(true);
-    setIsLoading(true); // Set loading state to true when analysis starts
+    setIsLoading(true); 
 
     try {
       const response = await fetch(`/api/check-robots?url=${encodeURIComponent(url)}`, {
         method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
 
       const contentType = response.headers.get('content-type');
@@ -116,7 +119,7 @@ const SEOHomepage = () => {
       setErrorMessage(error.message || 'Failed to check the URL. Please try again.');
       setIsUrlValid(false);
     } finally {
-      setIsLoading(false); // Set loading state to false when the process is done
+      setIsLoading(false); 
     }
   };
 
@@ -173,16 +176,15 @@ const SEOHomepage = () => {
             <button 
               onClick={handleSubmit} 
               className="analyze-button" 
-              disabled={!termsAccepted || isLoading} // Disable button during loading
+              disabled={!termsAccepted || isLoading } 
             >
               {isLoading ? (
                 <>
-                  Analysing... {/* Show this when loading */}
-                  {/* Optional spinner */}
+                  Analysing... 
                   <span className="spinner"></span>
                 </>
               ) : (
-                'Analyse your Website' // Show this when not loading
+                'Analyse your Website'
               )}
             </button>
           </div>
@@ -226,7 +228,8 @@ const SEOHomepage = () => {
           </section>
         )}
 
-        {isUrlValid && (
+        {/* Only show the AnalysisSection when the analysis is complete (isLoading is false) */}
+        {!isLoading && isUrlValid && (
           <AnalysisSection
             robotsTxtStatus={robotsTxtStatus}
             sitemapStatus={sitemapStatus}

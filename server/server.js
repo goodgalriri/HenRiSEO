@@ -4,18 +4,22 @@ const nodemailer = require('nodemailer');
 const http = require('http');
 const { JSDOM } = require('jsdom');
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 const app = express();
 const port = 3001;
 
-const SECRET_KEY = '6LdEpTIqAAAAAEChilSWgQQxSNjSzQoNFsYOFfAb'; // reCAPTCHA secret key
-const API_KEY = 'AIzaSyC2OiYQMxpr5pf8MrGZpLeiflRaW5uLuv0'; // Google API key
+// Use environment variables for secret keys and API keys
+const SECRET_KEY = process.env.RECAPTCHA_SERVER_KEY; // reCAPTCHA secret key
+const API_KEY = process.env.PAGESPEED_API_KEY; // Google API key
 
 // Nodemailer setup for Gmail SMTP
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'mhoang.tech@gmail.com', // Your Gmail address
-        pass: 'ljukydjnfovkeqai', // Your Gmail password
+        user: process.env.SMTP_USER, // Your Gmail address from .env
+        pass: process.env.SMTP_PASS, // Your Gmail password from .env
     }
 });
 
@@ -169,7 +173,7 @@ app.post('/api/send-email', async (req, res) => {
     }
 
     const mailOptions = {
-        from: 'mhoang.tech@gmail.com',
+        from: process.env.SMTP_USER, 
         to,
         subject,
         text

@@ -16,7 +16,7 @@ const LandingPage = ({ onVerificationSuccess }) => {
         const data = await response.json();
 
         if (data.success) {
-          onVerificationSuccess(); // Trigger the callback function after successful captcha
+          onVerificationSuccess(); 
         } else {
           alert('reCAPTCHA verification failed. Please try again.');
         }
@@ -31,7 +31,7 @@ const LandingPage = ({ onVerificationSuccess }) => {
       <h1>Welcome to HenRi's Technical SEO Analysis</h1>
       <p>Please verify that you are not a robot to continue.</p>
       <ReCAPTCHA
-        sitekey="6LdEpTIqAAAAAKZZ99-USSer6q8o8sDYEl91tgPV"
+        sitekey={process.env.REACT_APP_RECAPTCHA_PUBLIC_KEY}
         onChange={handleRecaptchaChange}
       />
     </div>

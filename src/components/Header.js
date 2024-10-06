@@ -1,9 +1,9 @@
 import React from 'react';
-import './Header.css'; // Ensure styles are applied
+import './Header.css'; 
 
 const Header = () => {
   const handleLogoClick = () => {
-    window.location.href = '/'; // Redirect to the homepage
+    window.location.href = '/'; 
   };
 
   return (

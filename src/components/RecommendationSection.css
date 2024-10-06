@@ -6,8 +6,8 @@
   font-weight: bold;
   margin: 40px 0 20px;
   text-align: left;
-  padding-left: 10px; /* Optional: Align to the left with some padding */
-  color: black; /* Set title color to black */
+  padding-left: 10px; 
+  color: black;
 }
 
 /* Recommendations section styling */
@@ -15,34 +15,34 @@
   padding: 20px;
   background-color: #ffe0cc;
   border: 2px solid #ff6b00;
-  color: black; /* Ensure text color in the recommendations section is black */
-  text-align: left; /* Align the text content to the left */
+  color: black; 
+  text-align: left;
 }
 
 .recommendations-content {
   font-size: 18px;
-  color: black; /* Ensure text color in content is black */
-  text-align: left; /* Align the text content to the left */
+  color: black; 
+  text-align: left;
 }
 
 .recommendations-content ul {
-  list-style-type: disc; /* Use disc bullets */
-  margin-left: 20px; /* Indent the bullets */
-  padding-left: 20px; /* Add padding to align the bullets properly */
-  color: black; /* Ensure list item text color is black */
-  text-align: left; /* Align the text content to the left */
+  list-style-type: disc; 
+  margin-left: 20px; 
+  padding-left: 20px; 
+  color: black; 
+  text-align: left; 
 }
 
 .recommendations-content li {
   margin-bottom: 10px;
-  color: black; /* Ensure list item text color is black */
-  text-align: left; /* Align the text content to the left */
+  color: black; 
+  text-align: left; 
 }
 
 .recommendations-content p {
   margin: 0;
-  color: black; /* Ensure paragraph text color is black */
-  text-align: left; /* Align the text content to the left */
+  color: black; 
+  text-align: left; 
 }
 
 .cta-section {
@@ -63,14 +63,14 @@
 
 .contact-link {
   font-size: 18px;
-  color: whitesmoke; /* The color for the contact link */
+  color: whitesmoke; 
   font-weight: bold;
   text-decoration: none;
   font-size: 19px;
 }
 
 .contact-link:hover {
-  text-decoration: underline; /* Optional: Add underline on hover */
+  text-decoration: underline;
 }
 
 /* Responsive Design */

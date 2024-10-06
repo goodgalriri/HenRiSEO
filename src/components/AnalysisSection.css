@@ -2,7 +2,7 @@
 .analysis-section {
   margin-top: 40px;
   padding-top: 40px;
-  color: black; /* Ensure all text in this section is black */
+  color: black; 
 }
 
 .report-summary-title {
@@ -10,8 +10,8 @@
   font-weight: bold;
   margin-bottom: 20px;
   text-align: left;
-  padding-left: 10px; /* Align to the left */
-  color: black; /* Set the title color to black */
+  padding-left: 10px; 
+  color: black; 
 }
 
 .report-item {
@@ -21,173 +21,121 @@
   margin-bottom: 20px;
   font-size: 18px;
   transition: background-color 0.3s ease;
-  color: black; /* Ensure text color is black */
+  color: black; 
 }
 
 .report-item:hover {
   background-color: #ffd1b3;
-  color: black; /* Keep text color black on hover */
+  color: black; 
 }
 
-/* Robots.txt section styling */
-.robots-txt {
-  background-color: #fff5e6; /* Light orange background */
-  border: 2px solid #ff9900; /* Orange border */
-  padding: 15px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: black;
-  text-align: left; /* Align text to the left */
+/* Styling for Core Web Vitals charts */
+.core-web-vitals-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
 }
 
-.robots-txt strong {
-  font-size: 18px;
-  display: block;
-  margin-bottom: 8px;
-  color: #ff9900; /* Darker orange for the title */
+.core-web-vitals-title {
+  font-size: 28px; 
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px; 
 }
 
-/* Sitemap section styling */
-.sitemap {
-  background-color: #fff5e6; /* Light orange background */
-  border: 2px solid #ff9900; /* Orange border */
-  padding: 15px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: black;
-  text-align: left; /* Align text to the left */
-}
-
-.sitemap strong {
-  font-size: 18px;
-  display: block;
-  margin-bottom: 8px;
-  color: #cc5200; /* Darker orange for the title */
-}
-
-/* HTTPS section styling */
-.https-status {
-  background-color: #fff5e6; /* Light orange background */
-  border: 2px solid #ff9900; /* Orange border */
-  padding: 15px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: black;
-  text-align: left; /* Align text to the left */
-}
-
-.https-status strong {
-  font-size: 18px;
-  display: block;
-  margin-bottom: 8px;
-  color: #cc5200; /* Darker orange for the title */
-}
-
-/* Mobile Friendly Content section styling */
-.mobile-friendly-status {
-  background-color: #fff5e6; /* Light orange background */
-  border: 2px solid #ff9900; /* Orange border */
-  padding: 15px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: black;
-  text-align: left; /* Align text to the left */
-}
-
-.mobile-friendly-status strong {
-  font-size: 18px;
-  display: block;
-  margin-bottom: 8px;
-  color: #cc5200; /* Darker orange for the title */
-}
-
-/* Core Web Vitals table styling */
-.core-web-vitals-table {
-  margin-top: 10px;
-  color: black; /* Set text color to black */
-}
-
-.core-web-vitals-table table {
+.core-web-vitals-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  border-collapse: collapse;
-  background-color: #ffe0cc;
-  border: 2px solid #ff6b00;
-  color: black; /* Set text color to black */
+  gap: 20px; 
 }
 
-.core-web-vitals-table th,
-.core-web-vitals-table td {
-  border: 1px solid #ff6b00;
-  padding: 10px;
-  text-align: left;
-  color: black; /* Ensure text color is black */
+.core-web-vitals-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
-.core-web-vitals-table th {
-  background-color: #ffdab3;
-  color: black; /* Ensure header text color is black */
+.core-web-vitals-chart {
+  position: relative;
+  width: 120px;
+  height: 120px; 
+  border-radius: 50%;
+  background: conic-gradient(
+    #00ff00 0% 33%, 
+    #ffcc00 33% 66%, 
+    #ff0000 66% 100% 
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px; 
+  font-weight: bold;
 }
 
-.core-web-vitals-table td {
-  background-color: #fff5e6;
-  color: black; /* Ensure table cell text color is black */
+.color-legend {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  margin-top: 10px; 
 }
 
-.core-web-vitals-table tr:nth-child(even) td {
-  background-color: #ffe5cc;
-  color: black; /* Ensure even row text color is black */
+.color-legend div {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 10px;
+  vertical-align: middle;
 }
 
-.core-web-vitals-table tr:hover td {
-  background-color: #ffdab3;
-  color: black; /* Ensure hover row text color is black */
+.color-legend .good {
+  background-color: #00ff00; 
+}
+
+.color-legend .satisfactory {
+  background-color: #ffcc00; 
+}
+
+.color-legend .poor {
+  background-color: #ff0000; 
 }
 
 /* Responsive Design */
 
 /* Medium Devices (Tablets) */
 @media (max-width: 768px) {
-  .report-summary-title {
-    font-size: 20px;
-    padding-left: 5px;
+  .core-web-vitals-chart {
+    width: 100px;
+    height: 100px;
   }
 
-  .report-item {
-    font-size: 16px;
-    padding: 15px;
+  .core-web-vitals-chart span {
+    font-size: 24px; 
   }
 
-  .core-web-vitals-table th, 
-  .core-web-vitals-table td {
-    padding: 8px;
-    font-size: 14px;
+  .color-legend {
+    font-size: 0.9rem; 
   }
 }
 
 /* Small Devices (Mobile Phones) */
 @media (max-width: 480px) {
-  .report-summary-title {
-    font-size: 18px;
-    padding-left: 5px;
+  .core-web-vitals-chart {
+    width: 80px; 
+    height: 80px;
   }
 
-  .report-item {
-    font-size: 14px;
-    padding: 10px;
+  .core-web-vitals-chart span {
+    font-size: 20px; 
   }
 
-  .robots-txt, .sitemap, .https-status, .mobile-friendly-status {
-    padding: 10px; /* Reduce padding for smaller screens */
-    font-size: 14px; /* Adjust font size for readability on smaller screens */
-  }
-
-  .robots-txt strong, .sitemap strong, .https-status strong, .mobile-friendly-status strong {
-    font-size: 16px; /* Adjust title font size */
-  }
-
-  .core-web-vitals-table th, 
-  .core-web-vitals-table td {
-    padding: 6px;
-    font-size: 12px;
+  .color-legend {
+    font-size: 0.8rem; 
   }
 }

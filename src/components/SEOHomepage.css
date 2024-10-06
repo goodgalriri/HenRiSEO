@@ -4,8 +4,8 @@
 body {
   margin: 0;
   font-family: 'Newsreader', serif;
-  background-color: whitesmoke; /* Set the new background color */
-  color: whitesmoke; /* Ensure text is visible against the new background */
+  background-color: whitesmoke;
+  color: whitesmoke;
   line-height: 1.6;
 }
 
@@ -14,15 +14,15 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: 'Newsreader', serif;
 }
 
-h1{
+h1 {
   font-weight: 200;
 }
 
-h2{
+h2 {
   font-weight: 400;
 }
 
-p{
+p {
   font-weight: 400;
 }
 
@@ -36,7 +36,7 @@ p{
 .main-content {
   width: 100%;
   max-width: 1200px;
-  padding: 100px 20px 40px; /* Adjust for header */
+  padding: 100px 20px 40px;
   text-align: center;
   margin: 0 auto;
 }
@@ -64,21 +64,21 @@ p{
 
 .input-container {
   display: flex;
-  flex-direction: column; /* Stack input and button vertically */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
-  gap: 35px; /* Space between input and button */
+  gap: 35px;
 }
 
 .url-input {
-  width: 600px; /* Keep the input field wider */
+  width: 600px;
   padding: 15px;
   font-size: 16px;
   border: 2px solid white;
-  border-radius: 50px; /* Keep the rounded shape */
+  border-radius: 50px;
   background-color: white;
-  color: black; /* Corrected to ensure text is readable on a white background */
+  color: black;
   outline: none;
   transition: border-color 0.3s ease;
   font-style: italic;
@@ -93,36 +93,61 @@ p{
 }
 
 .analyze-button {
-  width: 300px; /* Smaller width than input */
-  padding: 10px 20px; /* Smaller padding for rectangle shape */
+  width: 300px;
+  padding: 10px 20px;
   font-size: 20px;
   color: white;
   background-color: #FE6A00;
   border: none;
-  border-radius:10px; /* Slightly rounded corners for a rectangle */
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: relative;
 }
 
-.analyze-button:hover {
+.analyze-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.analyze-button:hover:enabled {
   background-color: #426B1F;
 }
 
+/* Spinner inside the button */
+.spinner {
+  margin-left: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Question Section */
 .question-section {
-  display: flex; /* Use flexbox for horizontal layout */
-  justify-content: space-between; /* Align elements to the left and right */
-  align-items: flex-start; /* Align to the top */
-  margin-top: 50px; /* Adjust spacing between sections */
-  margin-bottom: 40px; /* Adjust spacing between sections */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 50px;
+  margin-bottom: 40px;
   width: 100%;
-  max-width: 1000px; /* Adjust width to fit content */
-  padding: 0; /* Remove padding to blend with background */
+  max-width: 1000px;
+  padding: 0;
 }
 
 .ask-yourself-container {
-  flex: 1; /* Take equal space */
-  max-width: 200px; /* Limit width for the "ASK YOURSELF" section */
-  text-align: left; /* Align text to the left */
+  flex: 1;
+  max-width: 200px;
+  text-align: left;
 }
 
 .ask-yourself {
@@ -133,9 +158,9 @@ p{
 }
 
 .question-content {
-  flex: 3; /* Take more space compared to the left side */
-  padding-left: 20px; /* Add space between sections */
-  text-align: left; /* Align text to the left */
+  flex: 3;
+  padding-left: 20px;
+  text-align: left;
 }
 
 .question-content p {
@@ -146,6 +171,61 @@ p{
 
 .question-content .highlight {
   color: #426B1F;
+}
+
+/* Modal styles */
+.modal-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.modal-container.show {
+  display: flex;
+}
+
+.message-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  font-weight: bold;
+  font-size: 18px;
+  color: whitesmoke;
+  cursor: pointer;
+  padding: 5px 8px;
+}
+
+.close-button:hover {
+  background-color: #FE6A00;
+}
+
+/* Error Styles */
+.warning-box {
+  color: red;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 /* Responsive Design */
@@ -165,20 +245,19 @@ p{
   }
 
   .url-input {
-    width: 300px; /* Adjust width for smaller screens */
+    width: 300px;
   }
 
   .analyze-button {
-    width: 250px; /* Adjust width for button */
-    padding: 10px 15px; /* Adjust padding */
+    width: 250px;
+    padding: 10px 15px;
   }
 
   .question-section {
-    flex-direction: column; /* Stack the sections vertically */
-    align-items: flex-start; /* Align the content to the start */
+    flex-direction: column;
   }
 
-  .question-section p {
+  .question-content p {
     font-size: 18px;
   }
 }
@@ -199,43 +278,25 @@ p{
   }
 
   .url-input {
-    width: 250px; /* Further adjust width for mobile */
+    width: 250px;
   }
 
   .analyze-button {
-    width: 200px; /* Adjust button width for mobile */
-    padding: 8px 12px; /* Adjust padding */
+    width: 200px;
+    padding: 8px 12px;
   }
 
   .question-section {
-    flex-direction: column; /* Stack content vertically */
-    align-items: flex-start;
+    flex-direction: column;
     margin-top: 20px;
     padding: 0 10px;
   }
 
   .question-content p {
-    font-size: 16px; /* Adjust text size for mobile */
+    font-size: 16px;
   }
 
   .ask-yourself {
     font-size: 20px;
   }
-}
-
-/* Error Styles */
-/* Warning Box */
-.warning-box {
-  color: red;
-  background-color: #ffebeb;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid red;
-  border-radius: 5px;
-  text-align: center;
-}
-
-/* Input Error */
-.input-error {
-  border-color: red;
 }

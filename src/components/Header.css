@@ -31,18 +31,18 @@
 .seo-header-title {
   font-size: 24px;
   font-weight: 400;
-  color: #426B1F;  /* Apply the desired color to the entire title */
+  color: #426B1F;  
   margin: 0;
 }
 
 .seo-header-title .highlight {
   font-weight: normal;
-  color: #426B1F; /* Ensure HenRi stays in the correct color */
+  color: #426B1F; 
 }
 
 .seo-header-tagline {
   font-size: 12px;
-  color: black; /* Tagline color */
+  color: black; 
   margin: 0;
   font-style: italic;
 }
@@ -52,7 +52,7 @@
   display: flex;
   justify-items: center;
   align-items: center;
-  gap: 20px; /* Spacing between nav links */
+  gap: 20px; 
 }
 
 .seo-header-link {
@@ -63,14 +63,14 @@
 }
 
 .seo-header-link:hover {
-  color: #426B1F; /* Color on hover */
+  color: #426B1F; 
 }
 
 /* Call-to-Action Button */
 .seo-header-button {
   font-size: 16px;
   color: white;
-  background-color: #426B1F; /* Button background color */
+  background-color: #426B1F; 
   padding: 8px 16px;
   border-radius: 5px;
   text-decoration: none;
@@ -87,7 +87,7 @@
   .seo-header-content {
     flex-direction: column;
     align-items: center;
-    margin: 0 20px; /* Reduce side margins for smaller screens */
+    margin: 0 20px; 
   }
 
   .seo-header-logo {
@@ -101,12 +101,12 @@
   }
 
   .seo-header-title {
-    font-size: 20px; /* Adjust title size for smaller screens */
+    font-size: 20px; 
   }
 
   .seo-header-button {
-    padding: 8px 12px; /* Adjust button padding */
-    font-size: 14px; /* Adjust button font size */
+    padding: 8px 12px; 
+    font-size: 14px; 
   }
 }
 
@@ -114,7 +114,7 @@
   .seo-header-content {
     flex-direction: column;
     align-items: center;
-    margin: 0 10px; /* Further reduce side margins for mobile */
+    margin: 0 10px; 
   }
 
   .seo-header-logo {
@@ -128,11 +128,11 @@
   }
 
   .seo-header-title {
-    font-size: 18px; /* Further adjust title size for mobile */
+    font-size: 18px; 
   }
 
   .seo-header-button {
-    padding: 6px 10px; /* Further adjust button padding */
-    font-size: 12px; /* Further adjust button font size */
+    padding: 6px 10px; 
+    font-size: 12px; 
   }
 }

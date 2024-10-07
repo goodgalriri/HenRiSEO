@@ -13,8 +13,8 @@
     "web-vitals": "^4.2.3"
   },
   "scripts": {
-    "start": "react-scripts start --timeout=60000",
-    "build": "esbuild src/index.js --bundle --outfile=dist/bundle.js --platform=node --target=node14 --loader:.js=jsx --loader:.svg=file",
+    "start": "react-scripts start",
+    "build": "cross-env BUILD_PATH=./dist npx react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -38,6 +38,7 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "esbuild": "^0.23.0",
     "eslint-config-react-app": "^7.0.1"
   }
